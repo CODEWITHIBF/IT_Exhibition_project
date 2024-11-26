@@ -51,7 +51,6 @@
         position: fixed;
         opacity: 0;
         transition: all 0.9s ease-in-out;
-
     }
 
 
@@ -84,13 +83,13 @@
     .logo img {
         max-width: 200px;
         height: auto;
-        
+
     }
 
 
     .page1 {
-        min-height: 77vh;
-        margin-top: 6vh;
+        min-height: 90vh;
+        margin-top: 20vh;
         background-color: var(--mainbg);
     }
 

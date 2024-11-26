@@ -595,7 +595,7 @@
         .header .logo {
             width: 120px;
             height: auto;
-            background-size : contain;
+            background-size: contain;
             background-color: var(--mainbg);
             display: flex;
             justify-content: space-around;
@@ -632,9 +632,9 @@
             visibility: visible;
             pointer-events: auto;
             background-color: var(--mainbg);
-            z-index: 10;
+            z-index: 20;
             position: fixed;
-            top: 19vh;
+            top: 13vh;
 
         }
 
@@ -652,5 +652,5 @@
 
 
 
-        
+
     }
