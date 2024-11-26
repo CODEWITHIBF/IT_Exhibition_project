@@ -33,13 +33,18 @@ navigation();
 // Dawood Supermarket loading Animation
 LodaingAnimation = () => {
 
-    gsap.from("h1", {
-        y: 80,
-        opacity: 0,
-        delay: 0.5,
-        duration: 0.9,
+    gsap.to("h1", {
 
-        stagger: 0.5,
+        // opacity: 0,
+        delay: 1,
+        duration: 10,
+        // stagger: 1,
+        x: "10vw",
+        y: 0,
+        repeat: -1,
+        yoyo: true,
+        ease: "linear",
+
 
     })
 
