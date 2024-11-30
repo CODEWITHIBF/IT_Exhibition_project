@@ -43,7 +43,47 @@
     }
 
 
+    .pop_up {
+        width: 100vw;
+        height: 100px;
+        background-color: var(--extra);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
+
+    }
+
+    .pop_contact {
+        /* border: 3px solid white; */
+        width: 70vw;
+
+    }
+
+    .pop_contact ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .pop_contact ul li {
+        list-style: none;
+        font-size: 1.2rem;
+        font-family: var(--fontFamily);
+
+
+    }
+
+    .pop_contact ul li strong {
+        color: var(--mainbg);
+    }
+
+    .pop_up .icon {
+        cursor: pointer;
+    }
 
     .header {
         padding: 2vw 3vw;
@@ -52,15 +92,14 @@
         justify-content: space-around;
         background-color: var(--mainbg);
 
+
     }
-
-
-
 
     .header .logo {
         height: 6vw;
 
     }
+
 
     .navbar-list {
         display: flex;
@@ -176,6 +215,11 @@
         min-height: 100vh;
         min-width: 100%;
         background-color: var(--mainbg);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
     }
 
     h1 {
@@ -184,8 +228,9 @@
         font-size: 5rem;
         line-height: 1;
         margin-left: 4vw;
-        color: var(--headings);
+        color: var(--mainbg);
         letter-spacing: -3px;
+        z-index: 111111;
     }
 
 
@@ -199,10 +244,21 @@
         letter-spacing: -3px;
     }
 
+    .black {
+        background-color: var(--text);
+        z-index: 111;
+        position: absolute;
+        opacity: 0.7;
+        height: 100%;
+        width: 100%;
+    }
+
     .video_container {
         height: 100vh;
         width: 100%;
-        margin-top: 2vw;
+        position: absolute;
+        height: 100vh;
+
     }
 
     .video_container video {
@@ -552,7 +608,7 @@
     .footer-bottom {
         text-align: center;
         padding: 4vh;
-        width: 92%;
+        width: 100%;
         background-color: var(--headings);
         color: var(--mainbg);
         font-size: 1.3rem;

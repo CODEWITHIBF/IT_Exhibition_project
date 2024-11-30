@@ -5,6 +5,7 @@ const scroll = new LocomotiveScroll({
 
 
 
+
 // Responsive navigation bar
 function navigation() {
     const mobile_nav = document.querySelector(".mobile-navbar-btn");
@@ -57,6 +58,9 @@ LodaingAnimation = () => {
         duration: 1
 
     })
+
+
+
 }
 
 LodaingAnimation();
@@ -106,5 +110,36 @@ boxslider = () => {
 
 
 boxslider();
+
+
+
+const box = () => {
+    const closeBtn = document.querySelector(".icon");
+    const PopUp = document.querySelector(".pop_up");
+
+    closeBtn.addEventListener("click", function () {
+        // Apply animation first
+        gsap.to(PopUp, {
+            scale: 0.9,
+            opacity: 0,
+            duration: 1,
+            delay: 0.7,
+            onComplete: function () {
+                // After animation completes, hide the popup
+                PopUp.style.display = "none";
+            }
+        });
+    });
+
+    // Initial animation when the popup appears
+    gsap.from(PopUp, {
+        scale: 0.9,
+        opacity: 0,
+        duration: 1,
+        delay: 0.7
+    });
+};
+
+box();
 
 
