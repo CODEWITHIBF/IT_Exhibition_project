@@ -334,6 +334,12 @@
         letter-spacing: -3px;
     }
 
+    .text{
+        z-index: 1000;
+    }
+
+
+
     .black {
         background-color: var(--text);
         z-index: 111;
