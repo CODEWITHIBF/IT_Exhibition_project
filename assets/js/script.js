@@ -113,33 +113,150 @@ boxslider();
 
 
 
-const box = () => {
-    const closeBtn = document.querySelector(".icon");
-    const PopUp = document.querySelector(".pop_up");
 
-    closeBtn.addEventListener("click", function () {
-        // Apply animation first
-        gsap.to(PopUp, {
-            scale: 0.9,
-            opacity: 0,
+
+
+
+
+
+
+
+
+// script for ChatBot
+const chat = document.querySelector(".chatbot-container");
+const ai = document.querySelector(".assistant img");
+
+ai.addEventListener("click", function () {
+
+    if (chat.style.visibility === "visible") {
+        chat.style.visibility = "hidden";
+
+
+
+    }
+
+
+
+    else {
+        chat.style.visibility = "visible";
+
+        gsap.to(chat, {
+            scale: 1,
+            opacity: 1,
             duration: 1,
             delay: 0.7,
-            onComplete: function () {
-                // After animation completes, hide the popup
-                PopUp.style.display = "none";
-            }
+
+
         });
-    });
 
-    // Initial animation when the popup appears
-    gsap.from(PopUp, {
-        scale: 0.9,
-        opacity: 0,
-        duration: 1,
-        delay: 0.7
-    });
-};
+    }
+});
 
-box();
+
+
+
+
+document.getElementById('sendButton').addEventListener('click', sendMessage);
+
+function sendMessage() {
+    const userInput = document.getElementById('userInput').value.trim();
+    if (!userInput) return;
+
+    appendMessage('user', userInput);
+    document.getElementById('userInput').value = '';
+
+    // Simulate bot response
+    setTimeout(() => {
+        const botResponse = getBotResponse(userInput);
+        appendMessage('bot', botResponse);
+    }, 1000);
+}
+
+function appendMessage(sender, message) {
+    const chatBody = document.getElementById('chatBody');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    messageDiv.innerHTML = `<p>${message}</p>`;
+    chatBody.appendChild(messageDiv);
+    chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to the bottom
+}
+
+
+
+
+function getBotResponse(input) {
+    const lowerInput = input.toLowerCase();
+
+    // Keyword-based responses
+    const responses = [
+        {
+            keywords: ['time', 'timing', 'hours', 'open', 'close'],
+            response: 'Dawood Super Mart is open daily from 8:00 AM to 7:30 PM.',
+        },
+        {
+            keywords: ['hi', 'hello', 'how are you'],
+            response: 'Hello... I am fine... What about You. <br> I am Developed by: Muhammad Ibraheem',
+        },
+
+
+
+
+
+        {
+            keywords: ['product', 'groceries', 'clothing', 'cosmetics', 'electronics', 'tools', 'toys'],
+            response: 'We offer a wide range of products including groceries, household items, clothing, cosmetics, electronics, tools, and toys.',
+        },
+        {
+            keywords: ['groceries', 'fruits', 'vegetables'],
+            response: 'We have fresh fruits, vegetables, and daily essentials in our grocery section.',
+        },
+        {
+            keywords: ['clothing', 'garments'],
+            response: 'Our clothing section includes garments for men, women, and children, including branded and locally sourced options.',
+        },
+        {
+            keywords: ['cosmetics', 'beauty', 'perfumes', 'skincare'],
+            response: 'We offer perfumes, skincare, and beauty products in the cosmetics section.',
+        },
+        {
+            keywords: ['service', 'facilities', 'accessibility', 'wheelchair'],
+            response: 'Our services include escalators, lifts, and wheelchair accessibility for a comfortable shopping experience. Parking is also available, though limited during peak hours.',
+        },
+        {
+            keywords: ['parking'],
+            response: 'Parking space is available but can be limited during peak hours.',
+        },
+        {
+            keywords: ['discount', 'offers', 'promotions', 'price'],
+            response: 'We offer competitive prices with occasional discounts compared to local markets.',
+        },
+        {
+            keywords: ['events', 'activities'],
+            response: 'Regular promotional offers and seasonal discounts make us a go-to spot for families and bulk shopping.',
+        },
+        {
+            keywords: ['feedback', 'reviews'],
+            response: 'Visitors appreciate our variety, cleanliness, and reasonable pricing. Some have noted parking issues and delays at checkout counters.',
+        },
+        {
+            keywords: ['location', 'address'],
+            response: 'Dawood Super Mart is located at Autobahn Road, Hyderabad, surrounded by branded outlets and a busy commercial area.',
+        },
+        {
+            keywords: ['contact', 'website', 'information'],
+            response: 'For more information, visit our website: www.dawoodsupermarket.com.',
+        },
+    ];
+
+    // Find a matching response
+    for (const item of responses) {
+        if (item.keywords.some(keyword => lowerInput.includes(keyword))) {
+            return item.response;
+        }
+    }
+
+    // Default response for unrecognized queries
+    return "Sorry, I couldn't understand that. Can you please clarify?";
+}
 
 
